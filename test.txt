@@ -1,0 +1,734 @@
+
+
+<link rel="stylesheet" type="text/css" href="../tab-view.css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
+<script>
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .attr("style", "display:auto;width: 300px;height: 169px;border: solid 1px black;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 52%), 0 6px 20px 0 rgb(0 0 0 / 47%);")
+                        .width(300)
+                        .height(169);
+                    };
+
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+
+
+<script>
+  function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+
+                reader.onload = function (e) {
+                    $('#blah2')
+                        .attr('src', e.target.result)
+                        .attr("style", "display:auto;width: 300px;height: 169px;border: solid 1px black;box-shadow: 0 4px 8px 0 rgb(0 0 0 / 52%), 0 6px 20px 0 rgb(0 0 0 / 47%);")
+                        .width(300)
+                        .height(169);
+                    };
+
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+<script>
+             
+    function uploadFiles() {
+        var files = document.getElementById('file_upload').files;
+        if(files.length==0){
+            alert("Please first choose or drop any file(s)...");
+            return;
+        }
+        var filenames="";
+        for(var i=0;i<files.length;i++){
+            filenames+=files[i].name+"\n";
+        }
+        alert("Selected file(s) :\n____________________\n"+filenames);
+    }
+            
+</script>
+
+
+<script type="text/javascript" src="/ajax/functions.js"></script>
+<script type="text/javascript" src="/js/glyphs.js"></script>
+<script>function validStrLen($str, $min, $max){
+  $len = strlen($str);
+  if($len < $min){
+      return "Field Name is too short, minimum is $min characters ($max max)";
+  }
+  elseif($len > $max);{
+      return "Field Name is too long, maximum is $max characters ($min min).";
+  }
+  return TRUE;
+}</script>
+
+
+<style>
+    .upload-container {
+        position: relative;
+    }
+    .upload-container input {
+        border: 1px solid #92b0b3;
+        background: rgba(0, 0, 0, 0.4); 
+        outline: 2px dashed #92b0b3;
+        outline-offset: -10px;
+        padding: 100px 0px 100px 250px;
+        text-align: center !important;
+        width: 500px;
+    }
+    .upload-container input:hover {
+        background: #ddd;
+    }   
+    .upload-container:before {
+        position: absolute;
+        bottom: 50px;
+        left: 245px;
+        content: " (or) Drag and Drop files here. ";
+        color: #3f8188;
+        font-weight: 900;
+    }   
+    .upload-btn {
+        300px;
+        padding: 7px 20px;
+    } 
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  0 0px;
+}
+
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+
+.container {
+  border-radius: 20px;
+  padding: 20px;
+  width: 60%;
+  auto;
+  
+  }
+
+
+input[type=text] {
+  width: 100%;
+  20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  color:rgb(255, 255, 255);
+  'NMS';
+  font-size: large;
+  font-weight: bold;
+}
+select{
+ background: rgba(0, 0, 0, 0.3);
+ color:rgb(255, 255, 255);
+  'NMS';
+  font-size: large;
+  font-weight: bold;
+}
+select option {
+  40px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+label {
+  10px;
+  display: block;
+}
+
+
+.icon-container {
+  20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+
+input[type=submit] {
+    background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 12px;
+  10px 0;
+  border: solid 1px white;
+  
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+.custom-file-upload {
+    background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 12px;
+  10px 0;
+  border: solid 1px white;
+  
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+
+a {
+  color: #2196F3;
+}
+
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    20px;
+  }
+}
+.slidecontainer {
+  width: 30%;
+}
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+
+.slider:hover {
+  opacity: 1;
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 450px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid #fff;
+    border-radius: 25%;
+    outline-offset: -2px;
+    box-shadow: 0px 0px 4px #ffff
+}
+.infolink:before
+{
+    content: '?';
+    display: inline-block;
+    sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 1.8ex;
+    height: 1.8ex;
+    font-size: 2.4ex;
+    1.8ex;
+    border-radius: 1.2ex;
+    4px;
+    padding: 1px;
+    color: rgb(255, 0, 0);
+    background: rgba(0, 0, 0, 0.445);
+    border: 1px solid rgb(255, 0, 0);
+    text-decoration: none;
+}
+
+
+.infolink:hover:before
+{
+    color: white;
+    background: rgb(255, 0, 0);
+    border-color: white;
+    text-decoration: none;
+}
+.textarea2{
+ text-transform: uppercase;
+ background: rgba(0, 0, 0, 0.3);
+ color:rgb(255, 255, 255);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+}
+
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(255, 255, 255);
+}
+
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgb(255, 255, 255);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+}
+input:-webkit-autofill::first-line {
+  'NMS';
+}
+
+
+textarea#txt3 {
+
+
+background: rgba(0, 0, 0, 0.3);
+color:rgb(255, 255, 255);
+'NMS';
+  font-size: large;
+  font-weight: bold;
+}
+
+
+</style>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+       <form method="post" action="<?=$_SERVER['PHP_SELF']?>" enctype="multipart/form-data">      
+        <div class="row">
+  <div class="col-25" style="background-color: rgba(0,0,0,0.5);border-radius: 25px;padding: 40px 35px 10px 35px;text-align-last: center;">
+  <? if($report['r_id']): ?>
+  <h3>Edit a Report</h3>
+<? else: ?>
+  <h2 style="font-size: xx-large;"><center>Add a new fauna report</center></h2>
+<? endif; ?>
+  <h3 class="text--heading-centered"></h3>
+            <h3 class="text--heading-centered">Galactic Information</h3>
+            <br>
+            <font size="5" face="NMS"><label for="fname"><b>Portal Address</b> <span class="red">(required)</span></font>
+            <font size="3.5" face="NMS"><i>Tip: Portal coordinates are displayed in the lower left-hand corner in Photo Mode</i></font></label>
+            
+            <div class="icon-container">
+                <input type="text" class="textarea2" name="r_address" id="r_address" size="40" maxlength="12" minlength="12" onpaste="return /[a-fA-F0-9]/i.test(event.key)" onkeydown="return /[a-fA-F0-9v]/i.test(event.key)" style="font-weight: normal; 'Glyphs';width:50%;height: 40px;font-size: larger;text-align: center;" value="<?=htmlspecialchars($report['r_address'])?>"></input>
+
+
+   
+
+
+            <center><img src="../images/glyphs.png"/><br></center>
+            <font size="3.5" face="NMS">Use this image as a guide to typing out your Portal Address. Using 0-9 and A-F, Type the address in the box below.</font><br><br></div>
+            
+            <div class="row" align="center" style="width:86%;auto">
+                <div class="col-50">
+            <font size="5" face="NMS"><b>Galaxy:</b> <span class="red"><b>(required)</b></span><br></font>
+            <font size="3.5" face="NMS"><i>The name of the galaxy your discovery is located</i></font><br></label>
+            <select name="r_galaxy" id="r_galaxy" style="height: 40px"><?=$opt_galaxys?></select><br><br>
+
+
+        </div><div class="col-50">
+            <font size="5" face="NMS"><b>Planet Name:</b><br></font>
+            <font size="3.5" face="NMS"><i>The name of the galaxy your discovery is located</i></font><br></label>
+            <input type="text" name="r_planet" style="height: 40px" value="<?=htmlspecialchars($report['r_planet'])?>"></div></div>
+
+
+            <div class="row" align="center" style="width:86%;auto">
+                <div class="col-50">
+                    <font size="5" face="NMS"><b>Star System Name:</b><br></font>
+      <i>The name of the star system your discovery is located</i><br>
+            <input type="text" name="r_system" style="height: 40px" value="<?=htmlspecialchars($report['r_system'])?>" >
+
+
+            </div><div class="col-50">
+                <font size="5" face="NMS"><b>Biome:</b><br></font>
+                <font size="3.5" face="NMS"><i>The biome your discovery is located in</i></font><br>
+      <select name="r_biome" id="r_biome" style="height: 40px"><?=$opt_biomes?></select><br><br><br>
+            </div></div>
+            <div class="row" align="center" style="width:86%;auto">
+                <div class="col-50">
+                    <font size="5" face="NMS"><b>Ecosystem:</b></font><br>
+                    <font size="3.5" face="NMS"><i>The ecosystem your discovery is located in (Terrestrial, Aerial, Aquatic or Subterranean)</i></font><br>
+            
+            <select name="r_eco" id="r_eco" style="width: 50%; height: 40px" onchange="getGenus(this.value, this.form.elements['r_genus'])"><?=$opt_ecos?></select><br><br>
+        </div></div>
+  
+
+
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+            <script language="javascript" type="text/javascript">
+            
+            $(document).ready(function(){
+               $("select[name='r_biome']").change(function(){
+                 $("img[id=biome]").attr("src","/images/biomes/" + $(this).val() + ".png").attr("style", "display:auto;height:10%;");
+               });
+            });
+            </script>
+              <h3 class="text--heading-centered"></h3>
+
+
+              <h3 class="text--heading-centered">Analysis Information</h3>
+              <h4>Is this fauna Tameable?</h4>
+              <div class="row" style="width: fit-content; auto">
+              <label><input type="radio" checked name="r_tameable" value="1" <?php echo ($report['r_tameable']=='1' ? 'checked' : '');?>><img src='/images/tame.png'></label>
+              <label><input type="radio" name="r_tameable" value="0" <?php echo ($report['r_tameable']=='0' ? 'checked' : '');?>><img src='/images/notame.png'></label>
+              </div>
+              <img id="#biome" src="/images/biomes/.png" alt="" style="display:none;"/>
+              <img id="eco" src="/images/eco/.png" alt="" style="display:none;"/>
+              <img id="genus" src="/images/genus/.png" alt="" style="display: none;"/>
+              <br><br>
+              <div class="row" align="center" style="width:86%;auto">
+                  <div class="col-50" >
+                      <font size="5" face="NMS"><b>Specimen Name:</b> <span class="red"><b>(required)</b></span><br></font>
+                      <font size="2.5" face="NMS"><i>What is the name of your discovery?</i></font>
+              <input type="text" name="r_name" style="height: 40px" maxlength="80" value="<?=htmlspecialchars($report['r_name'])?>"></div><div class="col-50">
+                  <font size="5" face="NMS"><b>Genus:</b> <span class="red"><b>(required)</b></span> <a class="infolink" target="_blank" href="/viewgenera.php"></a><br></font>
+                  <font size="3.5" face="NMS"><i>The Genus or type of fauna that is discovered</i></font>
+              <select name="r_genus" id="r_genus" style="height: 40px"  onchange="getMeat(this.value, this.form.elements['r_drops'])" ><option value="<?=htmlspecialchars($report['r_genus'])?>"><?=htmlspecialchars($report['r_genus'])?></option>
+                <?=$opt_genuses?></select><br><br></div></div>
+              
+              <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+              <script language="javascript" type="text/javascript">
+              
+              $(document).ready(function(){
+                 $("select[name='r_genus']").change(function(){
+                   $("img[id=genus]").attr("src","/images/genus/" + $(this).val() + ".png").attr("style", "display:auto;width: 686px;height: 355px;position: relative;left: 0px; top:-360px;-webkit-filter: drop-shadow(0px 0px 2px rgba(255,255,255,1)); -320px;");
+                 });
+              });
+              
+              $(document).ready(function(){
+                 $("select[name='r_eco']").change(function(){
+                   $("img[id=eco]").attr("src","/images/eco/" + $(this).val() + ".png").attr("style", "display:auto;width: 686px;height: 355px;border: 1px solid black; box-shadow: rgba(0, 0, 0, 0.52) 0px 4px 8px 0px, rgba(0, 0, 0, 0.47) 0px 6px 20px 0px; opacity:75%;");
+                 });
+              });
+              </script>
+              <div class="row" align="center" style="width: 55%; auto">
+                <div class="col-50">
+              <font size="5" face="NMS" style="background-color: rgba(0,0,0,0.4);padding: 5px 8px 2px 8px;border-radius: 10px 10px 0 0;left: -12;top: -2px;position: relative;border: 1px solid white;"><b>Weight:</b></font><br>
+  <!--             <font size="3.5" face="NMS"><i>The weight of the fauna in kilograms</i></font>
+       -->
+
+
+        <input type="text" name="r_weight" style="width: fit-content" maxlength="80" value="<?=htmlspecialchars($report['r_weight'])?>"> <font size="4" face="NMS"><b>kg</b></font><br>
+
+
+        </div>
+                <div class="col-50">
+                  <font size="5" face="NMS" style="background-color: rgba(0,0,0,0.4);padding: 5px 8px 2px 8px;border-radius: 10px 10px 0 0;left: -12;top: -2px;position: relative;border: 1px solid white;"><b>Height:</b></font><br>
+  <!--                 <font size="3.5" face="NMS"><i>The height of the fauna in meters</i></font>
+   -->            <input type="text" name="r_height" style="width: fit-content" maxlength="80" value="<?=htmlspecialchars($report['r_height'])?>"> <font size="4" face="NMS"><b>m</b></font><br>
+                  
+                </div>
+              </div>
+              <div class="row" style="width:86%; auto">
+                <div class="col-50">
+                  <font size="5" face="NMS"><b>Primary Gender:</b></font><br>
+                  <font size="3.5" face="NMS"><i>The primary gender of the fauna</i></font>
+  
+              <select name="r_gender" id="r_gender" style="height: 40px"><?=$opt_genders?></select><br><br><font size="2" face="NMS"><b>Primary Gender Screenshot: - <span class="red">(Limit 4MB, only PNG, JPEG or GIF formats)</span></b></font>
+              <div class="upload">
+                  <label class="custom-file-upload" style="width:86%;margin-inline: auto;">
+                      <input type="file" name="photo[0]" onchange="readURL(this);">
+                      <font size="3" face="NMS">Upload Primary Gender Screenshot</font>
+                      
+                  </label>
+                  <img id="blah" src="/images/nophoto_thumb.png" style="display:none;" />
+          </div><br>
+                </div>
+                <div class="col-50">
+                  <font size="5" face="NMS"><b>Secondary Gender:</b></font><br>
+                  <font size="3.5" face="NMS"><i>The secondary gender of the fauna, this is optional</i></font>
+  
+              <select name="r_gender2" id="r_gender2" style="height: 40px"><?=$opt_genders2?></select><br><br><font size="2" face="NMS"><b>Secondary Gender Screenshot: - <span class="red">(Limit 4MB, only PNG, JPEG or GIF formats)</span></b></font>
+              <div class="upload">
+                      <label class="custom-file-upload" style="width:86%;margin-inline: auto;">
+                          <input type="file" name="photo[1]" onchange="readURL2(this);">
+                          <font size="3" face="NMS">Upload Secondary Gender Screenshot</font>
+                      </label>
+                      <img id="blah2" src="/images/nophoto_thumb.png" style="display:none;"/>
+              </div><br>
+                </div>
+              </div><br>
+
+
+              <div class="row" style="width: 86%; auto;">
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Behavior:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The behavior listed in the Analysis Visor</i></font>
+                      <select name="r_behavior" id="r_behavior" style="height: 40px;">
+                          <?=$opt_behaviors?>
+                      </select><br><br>
+                  </div>
+              
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Diet:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The diet listed in the Analysis Visor</i></font>
+                      <select name="r_diet" id="r_diet" style="height: 40px;">
+                          <?=$opt_diets?>
+                      </select><br>
+                  </div>
+              </div>
+              
+              <div class="row" style="width: 86%; auto;">
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Produces:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The resource your discovery produces when tamed</i></font><br>
+                      <select name="r_products" id="r_products" style="height: 40px;">
+                          <?=$opt_products?>
+                      </select>
+                  </div>
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Meat:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The resource your discovery drops upon death</i></font><br>
+                      <select name="r_drops" id="r_drops" style="height: 40px;">
+                          <?=$opt_drops?>
+                      </select><br><br>
+                  </div>
+              </div>
+              
+              <div class="row" style="width: 86%; auto;">
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Rarity:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The rarity of your discovery</i></font><br>
+                      <select name="r_rarity" id="r_rarity" style="height: 40px;">
+                          <?=$opt_raritys?>
+                      </select>
+                  </div>
+                  <div class="col-50">
+                      <font size="5" face="NMS"><b>Activity:</b></font><br>
+                      <font size="3.5" face="NMS"><i>The activity of your discovery</i></font><br>
+                      <select name="r_activity" id="r_activity" style="height: 40px;">
+                          <?=$opt_activitys?>
+                      </select>
+                      <div class="row" style="width: fit-content; auto;">
+                          <div style="padding: 10px; font-size: small;">
+                              <label><input type="checkbox" id="r_northsouth" name="r_northsouth" value="North" <?php echo ($report['r_northsouth'] == 'North' ? 'checked' : ''); ?>>Found in the North</label>
+                          </div>
+                          <div style="padding: 10px; font-size: small;">
+                            <label><input type="checkbox" id="r_northsouth" name="r_northsouth" value="South" <?php echo ($report['r_northsouth'] == 'South' ? 'checked' : ''); ?>>Found in the South</label>
+                          </div>
+                          </div>
+                          </div>
+                          
+                          </div><br><br>
+  
+  <style>
+    .color-label {
+      display: inline-block;
+      10px;
+    }
+  
+    .color-radio {
+      display: none;
+    }
+
+
+  </style>
+  
+  <div>
+    <font size="5" face="NMS" style="background-color: rgba(0,0,0,0.4);padding: 5px 8px 2px 8px;border-radius: 10px 10px 0 0;left: -320px;position: relative;"><b>Primary Color:</b></font><br>
+    <div class="row" style="width: fit-content; auto">
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Red" <?php echo ($report['r_color'] == 'Red' ? 'checked' : ''); ?>><img src='/images/red.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Orange" <?php echo ($report['r_color'] == 'Orange' ? 'checked' : ''); ?>><img src='/images/orange.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Yellow" <?php echo ($report['r_color'] == 'Yellow' ? 'checked' : ''); ?>><img src='/images/yellow.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Green" <?php echo ($report['r_color'] == 'Green' ? 'checked' : ''); ?>><img src='/images/green.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Teal" <?php echo ($report['r_color'] == 'Teal' ? 'checked' : ''); ?>><img src='/images/teal.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Blue" <?php echo ($report['r_color'] == 'Blue' ? 'checked' : ''); ?>><img src='/images/blue.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Purple" <?php echo ($report['r_color'] == 'Purple' ? 'checked' : ''); ?>><img src='/images/purple.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Pink" <?php echo ($report['r_color'] == 'Pink' ? 'checked' : ''); ?>><img src='/images/pink.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Brown" <?php echo ($report['r_color'] == 'Brown' ? 'checked' : ''); ?>><img src='/images/brown.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="White" <?php echo ($report['r_color'] == 'White' ? 'checked' : ''); ?>><img src='/images/white.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Gray" <?php echo ($report['r_color'] == 'Gray' ? 'checked' : ''); ?>><img src='/images/gray.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color" value="Black" <?php echo ($report['r_color'] == 'Black' ? 'checked' : ''); ?>><img src='/images/black.png'></label>
+    </div><br><br>
+  
+    <font size="5" face="NMS" style="background-color: rgba(0,0,0,0.4);padding: 5px 8px 2px 8px;border-radius: 10px 10px 0 0;left: -320px;position: relative;"><b>Accent Color:</b></font><br>
+    <div class="row" style="width: fit-content; auto">
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Red" <?php echo ($report['r_color2'] == 'Red' ? 'checked' : ''); ?>><img src='/images/red.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Orange" <?php echo ($report['r_color2'] == 'Orange' ? 'checked' : ''); ?>><img src='/images/orange.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Yellow" <?php echo ($report['r_color2'] == 'Yellow' ? 'checked' : ''); ?>><img src='/images/yellow.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Green" <?php echo ($report['r_color2'] == 'Green' ? 'checked' : ''); ?>><img src='/images/green.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Teal" <?php echo ($report['r_color2'] == 'Teal' ? 'checked' : ''); ?>><img src='/images/teal.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Blue" <?php echo ($report['r_color2'] == 'Blue' ? 'checked' : ''); ?>><img src='/images/blue.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Purple" <?php echo ($report['r_color2'] == 'Purple' ? 'checked' : ''); ?>><img src='/images/purple.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Pink" <?php echo ($report['r_color2'] == 'Pink' ? 'checked' : ''); ?>><img src='/images/pink.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Brown" <?php echo ($report['r_color2'] == 'Brown' ? 'checked' : ''); ?>><img src='/images/brown.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="White" <?php echo ($report['r_color2'] == 'White' ? 'checked' : ''); ?>><img src='/images/white.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Gray" <?php echo ($report['r_color2'] == 'Gray' ? 'checked' : ''); ?>><img src='/images/gray.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Black" <?php echo ($report['r_color2'] == 'Black' ? 'checked' : ''); ?>><img src='/images/black.png'></label>
+    </div>
+
+
+    <div class="row" style="width: fit-content; auto">
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="None" <?php echo ($report['r_color2'] == 'None' ? 'checked' : ''); ?>><img src='/images/none.png'></label>
+      <label class="color-label"><input class="color-radio" type="radio" name="r_color2" value="Transparent" <?php echo ($report['r_color2'] == 'Transparent' ? 'checked' : ''); ?>><img src='/images/transparent.png'></label><br><br>
+  </div>
+
+
+  
+    
+      </div>
+              
+              <br><br>
+              <font size="5" face="NMS"><b>Notes:</b></font><br>
+              <font size="3.5" face="NMS"><i>Enter a brief or extended description on the fauna that is being reported </i></font>
+              <div class="icon-container">
+              <textarea name="r_desc" id="txt3" style="text-align-last: left;width: 100%; height: 200px" placeholder="Enter a brief description"><?=htmlspecialchars($report['r_desc'])?></textarea>
+  
+              </div>
+                        
+          
+          <br>
+          <label class="custom-file-upload" style="width: fit-content;margin-inline: auto;">
+              <input type="submit" value="Submit My Discovery">
+          </label>
+      
+    
+    <input type="hidden" name="r_id" value="<?=$report['r_id']?>">
+  </form>
+  </div></div></div>
+  
+  </body>
+  <? if(!empty($error)): ?>
+    <script type="text/javascript">
+      window.onload = function() {
+        alert('<?=htmlspecialchars($error)?>');
+      };
+    </script>
+  <? endif; ?>
